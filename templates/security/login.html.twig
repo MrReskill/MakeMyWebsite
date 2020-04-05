@@ -1,42 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Dashboard | MakeMyWebsite.fr{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<style>
+    body {
+        background: url("https://img5.goodfon.com/wallpaper/nbig/d/22/yoan-agostini-by-yoan-agostini-flat-design-background-minima.jpg") no-repeat fixed center;
+        background-size: cover;
+    }
+    .login
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -150px 0 0 -150px;
+        width:300px;
+        height:300px;
+    }
+</style>
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+<div class="container">
+    <div class="center">
+        <div class="login">
+            <form method="post">
+                <h1 class="h3 mb-3 font-weight-normal"><div style="text-align: center; color:white; font-family: 'Abel', sans-serif;">Connexion</div></h1>
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                <input  style="margin-top: 5px;" type="email" value="{{ last_username }}" name="email" id="inputEmail"  placeholder="john.doe@gmail.com"  class="form-control" required autofocus>
+                <input  style="margin-top: 5px;" type="password" name="password" id="inputPassword"  placeholder="*******" class="form-control" required>
+
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
+                <div class="custom-control custom-checkbox" style="margin-top: 5px;">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1" name="_remember_me">
+                    <label class="custom-control-label" for="customCheck1" style="color:white;">Se souvenir de moi</label>
+                </div>
+
+
+                <button class="btn btn-block btn-primary" style="margin-top: 10px;" type="submit">
+                    Se connecter
+                </button>
+                <p style="text-align: right; color:white; margin-top: 5px;">Pas de compte ?  <a href="{{ path("app_register") }}">Inscrit toi</a> !</p>
+            </form>
         </div>
-    {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
+    </div>
+</div>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+<br>
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
 {% endblock %}

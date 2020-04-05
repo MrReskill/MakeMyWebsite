@@ -5,18 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}MakeMyWebsite.fr{% endblock %}</title>
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/lumen/bootstrap.min.css">
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     </head>
     <body>
-        <div class="header">
-            <div class="navbar">
-                <div class="logo">MAKEMYWEBSITE</div>
-            </div>
-            <div class="container">
-            </div>
-        </div>
-
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
