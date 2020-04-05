@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Oswald|Roboto&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    background-image: url("https://luxhosting.lu/wp-content/uploads/2019/07/Background_hosting_1920px_gradient.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.header .navbar {
+    height: 50px;
+    width: 100%;
+    border-bottom: 1.3px #8e7f7f solid;
+    position: fixed;
+}
+
+.header .navbar .logo {
+    color: #8e7f7f;
+    font-size: 30px;
+    opacity: 0.3;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+.header .container {
+    height: 600px;
+}
+
+@media(max-width: 767px) {
+
+    .header  {
+        height: 350px;
+    }
+
+}
